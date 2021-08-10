@@ -3,6 +3,8 @@ const Game = require('./game.js')
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  
-  new Game();
+  const view = new View(new Game(), "figure");
+  // const figure = document.querySelector(".ttt");
+  view.setupBoard();
+
 });

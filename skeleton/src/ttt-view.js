@@ -4,7 +4,16 @@ class View {
     this.el = el;
   }
 
-  setupBoard() {}
+  setupBoard() {
+    const ul = document.createElement("ul")
+    const figure = document.querySelector(this.el)
+    figure.appendChild(ul)
+    for (let i = 1; i <= 9; i++) {
+      const li = document.createElement("li")
+      li.innerText = i
+      ul.appendChild(li)
+    }
+  }
   
   bindEvents() {}
 

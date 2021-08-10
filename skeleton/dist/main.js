@@ -35,7 +35,7 @@ eval("const Board = __webpack_require__(/*! ./board */ \"./src/board.js\");\ncon
   \**********************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("const View = __webpack_require__(/*! ./ttt-view.js */ \"./src/ttt-view.js\");\nconst Game = __webpack_require__(/*! ./game.js */ \"./src/game.js\")\n\n\ndocument.addEventListener(\"DOMContentLoaded\", () => {\n  \n  new Game();\n});\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("const View = __webpack_require__(/*! ./ttt-view.js */ \"./src/ttt-view.js\");\nconst Game = __webpack_require__(/*! ./game.js */ \"./src/game.js\")\n\n\ndocument.addEventListener(\"DOMContentLoaded\", () => {\n  const view = new View(new Game(), \"figure\");\n  // const figure = document.querySelector(\".ttt\");\n  view.setupBoard();\n\n});\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
@@ -55,7 +55,7 @@ eval("\nconst MoveError = function (msg) { this.msg = msg; };\n\n// MoveError re
   \*************************/
 /***/ ((module) => {
 
-eval("class View {\n  constructor(game, el) {\n    this.game = game;\n    this.el = el;\n  }\n\n  setupBoard() {}\n  \n  bindEvents() {}\n\n  handleClick(e) {}\n\n  makeMove(square) {}\n\n}\n\nmodule.exports = View;\n\n\n//# sourceURL=webpack:///./src/ttt-view.js?");
+eval("class View {\n  constructor(game, el) {\n    this.game = game;\n    this.el = el;\n  }\n\n  setupBoard() {\n    const ul = document.createElement(\"ul\")\n    const figure = document.querySelector(this.el)\n    figure.appendChild(ul)\n    for (let i = 1; i <= 9; i++) {\n      const li = document.createElement(\"li\")\n      li.innerText = i\n      ul.appendChild(li)\n    }\n  }\n  \n  bindEvents() {}\n\n  handleClick(e) {}\n\n  makeMove(square) {}\n\n}\n\nmodule.exports = View;\n\n\n//# sourceURL=webpack:///./src/ttt-view.js?");
 
 /***/ })
 
