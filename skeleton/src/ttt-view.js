@@ -3,6 +3,7 @@ class View {
     this.game = game;
     this.el = el;
     this.setupBoard();
+    this.bindEvents();
   }
 
   setupBoard() {
@@ -11,28 +12,29 @@ class View {
     figure.appendChild(ul)
     for (let i = 0; i < 3; i++) {
       for (let j = 0; j < 3; j++) {
-        const li = document.createElement("li")
-        li.innerText = i     
-        li.dataset.pos = `"[${i},${j}]"`
+        let li = document.createElement("li")    
+        li.dataset.pos = `[${i}, ${j}]`
         ul.appendChild(li)
       }
     }
   }
   
   bindEvents() {
-    this.el.addEventListener('click', this.handleClick)
+    const event = this.el
+    event.addEventListener('click', this.handleClick)
   }
 
   handleClick(e) {
     if (e.target.tagName === "LI"){
-        bindEvents();
-    }
+      this.makeMove(e.target.dataset.pos);
+    };
    
 
   }
 
   makeMove(square) {
-
+    e.target.classList.add("onoff")
+    this.game.playMove(square);
   }
 
 }
